@@ -103,23 +103,16 @@ export function errorOff()
 
 
 
-const URL1='https://redux-next-blue.vercel.app';
-const URL2='http://localhost:3001';
 export function postsLoad()
 {
     return async dispatch=>{ // Це асинхронна функція, яка приймає `dispatch` як аргумент.
     try{
         dispatch(loaderOn());
         // Здійснюємо асинхронний запит на отримання коментарів з конкретного API-шляху.
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-            method: 'GET', 
-            next: {
-                revalidate: 250,
-            },
-        });
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
         // Парсимо дані відповіді у формат JSON.
         const jsonData= await response.json();
-console.log("jsonData",jsonData)
+
         //Зробимо затримку зоб побачити як працює loader
         setTimeout(()=>{
 
