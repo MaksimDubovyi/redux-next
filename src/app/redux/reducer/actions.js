@@ -111,7 +111,7 @@ export function postsLoad()
     try{
         dispatch(loaderOn());
         // Здійснюємо асинхронний запит на отримання коментарів з конкретного API-шляху.
-        const response = await fetch(URL1 + `/api/posts`, {
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
             method: 'GET', 
             next: {
                 revalidate: 250,
