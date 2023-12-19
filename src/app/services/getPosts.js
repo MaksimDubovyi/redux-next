@@ -14,7 +14,10 @@ export const getPosts = async () => {
 
         const data = await response.json();
         
-        if (!response.ok) throw new Error("Unable to fetch contacts");
+        if (!response.ok) {
+            console.error('Response status:', response.status);
+            throw new Error("Unable to fetch contacts");
+        }
     
          return data;
     } catch {  
