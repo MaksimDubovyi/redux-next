@@ -1,10 +1,25 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(req) {
 
+  console.log("GET")
   try {
+
+    const {searchParams} = new URL(req.url)
+    const id = searchParams.get('id')
+    console.log("id2",id)
+    let res=null;
+    if(id)
+    {
+       res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    }
+    else
+    {
+      res = await fetch('https://jsonplaceholder.typicode.com/posts');
+    }
+
     // Fetch data from an external API
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+ 
 
     if (!res.ok) {
       // If the response status is not ok, throw an error
