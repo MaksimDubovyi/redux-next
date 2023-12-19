@@ -12,7 +12,7 @@ import { getPosts } from "../services/getPosts"
 //   }
 
 export default async function Posts (){
-     const data = await getData()
+    //  const data = await getData()
 
     return(
         <div>
