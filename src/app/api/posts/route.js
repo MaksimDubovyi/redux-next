@@ -13,7 +13,7 @@ export async function GET() {
 
     // Parse the response as JSON
     const data = await res.json();
-    console.log("GET2",data)
+
     // Return a JSON response with the fetched data
     return NextResponse.json(data);
   } catch (error) {
