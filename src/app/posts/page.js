@@ -7,23 +7,23 @@ import { getPosts } from "../services/getPosts"
 
 
 
-async function getData() {
+// async function getData() {
     
 
-     try {
-        const response =await getPosts()
-        return response
-      }
-     catch (error) {
-        console.error('Error fetching data:', error);
-        throw new Error('Failed to fetch data');
-      }
+//      try {
+//         const response =await getPosts()
+//         return response
+//       }
+//      catch (error) {
+//         console.error('Error fetching data:', error);
+//         throw new Error('Failed to fetch data');
+//       }
    
   
-  }
+//   }
 
 export default async function Posts (){
-     const data = await getData()
+    //  const data = await getData()
 
     return(
 
