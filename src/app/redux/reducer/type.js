@@ -14,3 +14,6 @@ export const ERROR_DISPLAY_OFF='ERROR_DISPLAY_OFF';
 
 
 export const POSTS_LOAD='POSTS_LOAD';
+export const POSTS_DELETE='POSTS_DELETE';
+
+

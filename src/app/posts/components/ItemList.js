@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import {  useEffect} from 'react';// для default стану нашого поля input
-import { postsLoad } from '../../redux/reducer/actions';
+import { postsLoad,postsDelete } from '../../redux/reducer/actions';
 
 
 const ItemList = ({data}) => {
@@ -16,13 +16,33 @@ const ItemList = ({data}) => {
         dispatch(postsLoad(data));
     },[])
 
+    const handleClick = (postId) => {
+        dispatch(postsDelete(postId));
+    }
     return (
 
-        <ul className="list-group">
+
+
+  <div className="container text-center">
         {posts &&posts.length > 0 && posts.map(item => (
-            <Link  key={item.id}  className="btn btn-primary" href={`/posts/${item.id}`}>{item.title}</Link>
+          <div className="row justify-content-md-center" key={item.id}>
+
+            <div className="col col-lg-1 mt-2">
+            <h3><span className="badge bg-secondary">{item.id}</span></h3>
+            </div>  
+            <div className="col col-lg-6 mt-2">
+            <Link    className="btn btn-primary float-start" href={`/posts/${item.id}`}>{item.title}</Link>
+            </div>
+            <div className="col col-lg-2">
+            <button onClick={() => handleClick(item.id)} type="button" className ="btn btn-danger float-end">Delete</button>
+            </div>
+          </div>
+          
+     
+            
         ))}
-        </ul>
+        </div>
+      
 
     );
   };
@@ -30,15 +50,5 @@ const ItemList = ({data}) => {
   export { ItemList };
 
 
-// const ItemList = ({ id ,title}) => {
 
-//   return (
-//     <li className="list-group-item">
-//      <Link   className="btn btn-primary" href={`/posts/${id}`}>{title}</Link>
-     
-//     </li>
-//   );
-// };
-
-// export { ItemList };
 

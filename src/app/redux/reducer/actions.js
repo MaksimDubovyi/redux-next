@@ -1,5 +1,5 @@
 import { INCREMENT,DECREMENT,IPUT_TEXT,COMMENT_CREATE,COMMENT_UPDATE,COMMENT_DELETE,
-    COMMENT_LOAD,LOADER_DISPLAY_ON,LOADER_DISPLAY_OFF,ERROR_DISPLAY_ON,ERROR_DISPLAY_OFF,POSTS_LOAD } from "./type";
+    COMMENT_LOAD,LOADER_DISPLAY_ON,LOADER_DISPLAY_OFF,ERROR_DISPLAY_ON,ERROR_DISPLAY_OFF,POSTS_LOAD,POSTS_DELETE } from "./type";
 
 
 export function incrementLikes()
@@ -111,7 +111,13 @@ export function postsLoad(data)
     
 }
 
-
+export function postsDelete(id)
+{
+    return {
+         type:POSTS_DELETE,
+         id
+         };
+}
 // export function postsLoad()
 // {
 //     return async dispatch=>{ // Це асинхронна функція, яка приймає `dispatch` як аргумент.

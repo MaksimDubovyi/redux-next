@@ -1,4 +1,4 @@
-import { POSTS_LOAD} from "./type"
+import { POSTS_LOAD,POSTS_DELETE} from "./type"
 
 const initialState ={
     posts:[]
@@ -24,6 +24,19 @@ export const postsReducer=(state=initialState,action)=>
             })
             return{...state,
                 posts:postsNew}
+        case POSTS_DELETE:
+           //логіка такаж як і в оновлені але використаю стрілкову функцію щоб не було конфліктів імен
+           return (()=>{
+                const {id}=action;
+                const {posts}=state;
+                const itemIndex = posts.findIndex(res=>res.id===id);//знаходимо індекс обекта який потрібно змінити
+           // створюємо новий стан коментарів
+           const nextPosts=[
+               ...posts.slice(0,itemIndex),//беремо із старого стану від початку до елемента який потрібно змінити і додаємо ці елементи в новий стан
+               ...posts.slice(itemIndex+1)// забераємо все що залишилось в старому масиві коментарів після обєкта якого потрібно було змінити 
+           ]
+           return{...state,
+            posts:nextPosts}})(); //()для запуску внутрішньї функції
 
            
           
