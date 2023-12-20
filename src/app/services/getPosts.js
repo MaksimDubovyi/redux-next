@@ -5,7 +5,7 @@ const URL2='http://localhost:3001';
 export const getPosts = async () => {
 
     try {
-        const response = await fetch(URL2 + `/api/posts`, {
+        const response = await fetch(URL1 + `/api/posts`, {
             method: 'GET', 
             next: {
                 revalidate: 250,

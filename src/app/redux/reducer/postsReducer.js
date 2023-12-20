@@ -1,4 +1,4 @@
-import { POSTS_LOAD,COMMENT_UPDATE,COMMENT_DELETE,COMMENT_LOAD } from "./type"
+import { POSTS_LOAD} from "./type"
 
 const initialState ={
     posts:[]
