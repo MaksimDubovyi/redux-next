@@ -41,36 +41,36 @@ export function commentDelete(id)
 
 // Ця функція є генератором дій для завантаження коментарів.
 // Вона повертає функцію (thunk), яка має доступ до методу `dispatch`.
-export function commentLoad()
-{
-    return async dispatch=>{ // Це асинхронна функція, яка приймає `dispatch` як аргумент.
-    try{
-        dispatch(loaderOn());
-        // Здійснюємо асинхронний запит на отримання коментарів з конкретного API-шляху.
-        const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10');
-        // Парсимо дані відповіді у формат JSON.
-        const jsonData= await response.json();
+// export function commentLoad()
+// {
+//     return async dispatch=>{ // Це асинхронна функція, яка приймає `dispatch` як аргумент.
+//     try{
+//         dispatch(loaderOn());
+//         // Здійснюємо асинхронний запит на отримання коментарів з конкретного API-шляху.
+//         const response = await fetch('https://jsonplaceholder.typicode.com/comments?_limit=10');
+//         // Парсимо дані відповіді у формат JSON.
+//         const jsonData= await response.json();
 
-        //Зробимо затримку зоб побачити як працює loader
-        setTimeout(()=>{
+//         //Зробимо затримку зоб побачити як працює loader
+//         setTimeout(()=>{
 
-             // Відправляємо дію з завантаженими коментарями до сховища Redux.
-        dispatch({
-            type:COMMENT_LOAD,
-            data:jsonData
-        })
-        dispatch(loaderOff());
-        },1000)
+//              // Відправляємо дію з завантаженими коментарями до сховища Redux.
+//         dispatch({
+//             type:COMMENT_LOAD,
+//             data:jsonData
+//         })
+//         dispatch(loaderOff());
+//         },1000)
 
-    }
-    catch(err)
-    {
-        dispatch(errorOn('Помилка API'));
-        dispatch(loaderOff());
-    }
+//     }
+//     catch(err)
+//     {
+//         dispatch(errorOn('Помилка API'));
+//         dispatch(loaderOff());
+//     }
        
-    }
-}
+//     }
+// }
 
 
 export function loaderOn()

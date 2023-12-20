@@ -6,13 +6,10 @@
 
 export default  function Post({ params: { id } }) 
 {
-console.log("i1d",id)
-// const dispatch=useDispatch();
 
-const posts =useSelector(state =>{
+    const posts =useSelector(state =>{
      const {postsReducer}=state; 
-     console.log("postsReducer.comments",postsReducer.posts)
- 
+
       // Спробуйте конвертувати id в число, враховуючи можливі випадки, коли id недійсний
       const desiredId = parseInt(id, 10);
   
@@ -29,7 +26,6 @@ const posts =useSelector(state =>{
       return desiredComment;
 })
 
-console.log("comments",posts)
 
 return (
     <div>
