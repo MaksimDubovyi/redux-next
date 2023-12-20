@@ -101,35 +101,44 @@ export function errorOff()
 }
 
 
-
-
-export function postsLoad()
+export function postsLoad(data)
 {
-    return async dispatch=>{ // Це асинхронна функція, яка приймає `dispatch` як аргумент.
-    try{
-        dispatch(loaderOn());
-        // Здійснюємо асинхронний запит на отримання коментарів з конкретного API-шляху.
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-        // Парсимо дані відповіді у формат JSON.
-        const jsonData= await response.json();
 
-        //Зробимо затримку зоб побачити як працює loader
-        setTimeout(()=>{
-
-             // Відправляємо дію з завантаженими коментарями до сховища Redux.
-        dispatch({
-            type:POSTS_LOAD,
-            data:jsonData
-        })
-        dispatch(loaderOff());
-        },10)
-
-    }
-    catch(err)
-    {
-        dispatch(errorOn('Помилка API'));
-        dispatch(loaderOff());
-    }
-       
-    }
+    return {
+        type:POSTS_LOAD,
+        data
+        };
+    
 }
+
+
+// export function postsLoad()
+// {
+//     return async dispatch=>{ // Це асинхронна функція, яка приймає `dispatch` як аргумент.
+//     try{
+//         dispatch(loaderOn());
+//         // Здійснюємо асинхронний запит на отримання коментарів з конкретного API-шляху.
+//         const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+//         // Парсимо дані відповіді у формат JSON.
+//         const jsonData= await response.json();
+
+//         //Зробимо затримку зоб побачити як працює loader
+//         setTimeout(()=>{
+
+//              // Відправляємо дію з завантаженими коментарями до сховища Redux.
+//         dispatch({
+//             type:POSTS_LOAD,
+//             data:jsonData
+//         })
+//         dispatch(loaderOff());
+//         },10)
+
+//     }
+//     catch(err)
+//     {
+//         dispatch(errorOn('Помилка API'));
+//         dispatch(loaderOff());
+//     }
+       
+//     }
+// }
