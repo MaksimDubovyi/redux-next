@@ -1,39 +1,42 @@
 'use client'
 
- import {  useSelector } from "react-redux";
+//  import {  useSelector } from "react-redux";
 
 
 
-export default  function Post({ params: { id } }) 
-{
+// export default  function Post({ params: { id } }) 
+// {
 
-    const posts =useSelector(state =>{
-     const {postsReducer}=state; 
+//     const posts =useSelector(state =>{
+//      const {postsReducer}=state; 
 
-      // Спробуйте конвертувати id в число, враховуючи можливі випадки, коли id недійсний
-      const desiredId = parseInt(id, 10);
+//       // Спробуйте конвертувати id в число, враховуючи можливі випадки, коли id недійсний
+//       const desiredId = parseInt(id, 10);
   
-      if (isNaN(desiredId)) {
-        // Якщо id не є числовим значенням, можна обробити цей випадок за необхідності
-        console.log("Невірний формат id:", id);
-        return null;
-      }
+//       if (isNaN(desiredId)) {
+//         // Якщо id не є числовим значенням, можна обробити цей випадок за необхідності
+//         console.log("Невірний формат id:", id);
+//         return null;
+//       }
   
-      const desiredComment = postsReducer.posts.find(
-        (posts) => posts.id === desiredId
-      );
+//       const desiredComment = postsReducer.posts.find(
+//         (posts) => posts.id === desiredId
+//       );
   
-      return desiredComment;
-})
+//       return desiredComment;
+// })
 
 
-return (
-    <div>
-      <h1>{posts ? posts.title : "Коментар не знайдено"}</h1>
-      <h1>{posts ? posts.id : "Коментар не знайдено"}</h1>
-    </div>
-  );
-}
+// return (
+//     <div>
+//       <h1>{posts ? posts.title : "Коментар не знайдено"}</h1>
+//       <h1>{posts ? posts.id : "Коментар не знайдено"}</h1>
+//     </div>
+//   );
+// }
+
+
+
 
 // export default function Post({ params: { id } }) {
 //     console.log("i1d", id);

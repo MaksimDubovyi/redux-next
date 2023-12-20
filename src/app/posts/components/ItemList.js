@@ -1,9 +1,8 @@
-
 'use client'
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import {  useEffect} from 'react';// для default стану нашого поля input
- import { postsLoad } from '../../redux/reducer/actions';
+import { postsLoad } from '../../redux/reducer/actions';
 
 
 
