@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import {  useEffect} from 'react';// для default стану нашого поля input
+import {  useEffect} from 'react';
 import { postsLoad,postsDelete } from '../../redux/reducer/actions';
 
 
@@ -41,7 +41,7 @@ const ItemList = ({data}) => {
      
             
         ))}
-        </div>
+     </div>
       
 
     );

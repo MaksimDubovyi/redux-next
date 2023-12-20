@@ -10,11 +10,10 @@ export default  function Post({ params: { id } })
     const posts =useSelector(state =>{
      const {postsReducer}=state; 
 
-      // Спробуйте конвертувати id в число, враховуючи можливі випадки, коли id недійсний
+
       const desiredId = parseInt(id, 10);
   
       if (isNaN(desiredId)) {
-        // Якщо id не є числовим значенням, можна обробити цей випадок за необхідності
         console.log("Невірний формат id:", id);
         return null;
       }

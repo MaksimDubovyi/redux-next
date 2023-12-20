@@ -25,7 +25,6 @@ export const postsReducer=(state=initialState,action)=>
             return{...state,
                 posts:postsNew}
         case POSTS_DELETE:
-           //логіка такаж як і в оновлені але використаю стрілкову функцію щоб не було конфліктів імен
            return (()=>{
                 const {id}=action;
                 const {posts}=state;
